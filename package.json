@@ -1,42 +1,21 @@
 {
-  "name": "anglers-log-frontend",
-  "version": "0.1.0",
-  "description": "Personal fishing journal with gamification - Frontend UI",
-  "private": true,
-  "proxy": "http://localhost:5000",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0",
-    "axios": "^1.6.2",
-    "tailwindcss": "^3.3.6"
-  },
-  "devDependencies": {
-    "react-scripts": "5.0.1",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/jest-dom": "^6.1.4"
-  },
+  "name": "fishing-app",
+  "version": "1.0.0",
+  "description": "Gamified fishing catch log with leaderboards",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Build complete - Node.js server ready'"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.0",
+    "piexifjs": "^1.0.6",
+    "jsonwebtoken": "^9.1.2"
   }
 }
