@@ -13,14 +13,9 @@
                                                     "dest": "api/index.js"
                                                         },
                                                             {
-                                                                  "src": "/(.*)\\..*",
-                                                                        "dest": "/frontend/dist/$1.$2"
-                                                                            },
-                                                                                {
-                                                                                      "src": "/(.*)",
-                                                                                            "dest": "/frontend/dist/index.html",
-                                                                                                  "status": 200
-                                                                                                      }
-                                                                                                        ]
-                                                                                                        }
+                                                                  "src": "/(.*)",
+                                                                        "dest": "/frontend/dist/index.html"
+                                                                            }
+                                                                              ]
+                                                                              }
 }
