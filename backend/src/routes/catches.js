@@ -152,6 +152,7 @@ router.get('/', authMiddleware, async (req, res) => {
 router.post('/', authMiddleware, async (req, res) => {
   const client = await pool.connect();
   try {
+          await client.query('BEGIN');
     const userId = req.userId;
     const { photoUrl, species, weight_lbs, length_inches, notes, trip_id } = req.body;
 
@@ -279,7 +280,7 @@ router.post('/', authMiddleware, async (req, res) => {
     } catch (err) {
       console.error('[BADGE ERROR]', err);
     }
-
+      await client.query('COMMIT');
     res.status(201).json({
       success: true,
       catch: { id: catchId, user_id: userId, trip_id: trip_id || null, species, weight_lbs: weight_lbs || null, length_inches: length_inches || null, photo_url: photoUrl, notes: notes || null, caught_at: exifData.timestamp, created_at: createdAt },
@@ -288,6 +289,8 @@ router.post('/', authMiddleware, async (req, res) => {
     });
 
   } catch (err) {
+            await client.query('ROLLBACK');
+    
     console.error('[CATCHES POST ERROR]', err);
     res.status(500).json({ success: false, error: 'Failed to create catch' });
   } finally {
