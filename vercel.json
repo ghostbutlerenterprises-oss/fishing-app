@@ -18,8 +18,9 @@
                                                                             },
                                                                                 {
                                                                                       "src": "/(.*)",
-                                                                                            "dest": "/frontend/dist/index.html"
-                                                                                                }
-                                                                                                  ]
-                                                                                                  }
+                                                                                            "dest": "/frontend/dist/index.html",
+                                                                                                  "status": 200
+                                                                                                      }
+                                                                                                        ]
+                                                                                                        }
 }
