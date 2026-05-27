@@ -166,6 +166,12 @@ router.post('/', authMiddleware, async (req, res) => {
       return res.status(400).json({ success: false, error: 'Photo URL is required' });
     }
     if (!photoUrl.startsWith('/uploads/')) {
+            // Additional path traversal protection: validate resolved path is within uploads directory
+                  const uploadsDir = path.resolve(__dirname, '../../..', '/uploads');
+                        const resolvedPhotoPath = path.resolve(uploadsDir, photoUrl.substring('/uploads/'.length));
+                              if (!resolvedPhotoPath.startsWith(uploadsDir) || path.relative(uploadsDir, resolvedPhotoPath).startsWith('..')) {
+                                      return res.status(400).json({ success: false, error: 'Invalid photo URL - path traversal detected' });
+                                            }
       return res.status(400).json({ success: false, error: 'Invalid photo URL format' });
     }
 
