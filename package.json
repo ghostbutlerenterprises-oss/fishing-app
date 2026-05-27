@@ -1,21 +1,22 @@
 {
-  "name": "fishing-app",
+  "name": "fishing-app-backend",
   "version": "1.0.0",
-  "description": "Gamified fishing catch log with leaderboards",
+  "description": "Gamified Fishing Catch Log with Leaderboard",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
+    "dev": "node --watch server.js",
     "build": "echo 'Build complete - Node.js server ready'"
   },
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "pg": "^8.11.0",
+    "dotenv": "^16.0.3",
     "multer": "^1.4.5-lts.1",
     "sharp": "^0.32.0",
-    "piexifjs": "^1.0.6",
-    "jsonwebtoken": "^9.1.2"
+    "piexifjs": "^0.1.3",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.10.0"
   }
 }
