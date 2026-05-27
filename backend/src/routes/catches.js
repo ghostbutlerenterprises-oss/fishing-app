@@ -244,7 +244,7 @@ router.post('/', authMiddleware, async (req, res) => {
 
     let newBadges = [];
     try {
-      const badgesResult = await client.query('SELECT * FROM badges WHERE enabled = true ORDER BY priority DESC');
+      const badgesResult = await client.query('SELECT * FROM badge_definitions WHERE enabled = true ORDER BY priority DESC');
       for (const badge of badgesResult.rows) {
         const catchForEval = { id: catchId, species, weight_lbs: weight_lbs || null, length_inches: length_inches || null, caught_at: exifData.timestamp };
         const earned = await evaluateCriteria(badge, userId, catchForEval);
